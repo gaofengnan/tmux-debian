@@ -7,7 +7,7 @@
 # all of them. arm64 is cross-compiled (no emulation needed to build).
 #
 # Produces, in ./out :
-#   tmux_<ver>-<build>~griffo_<arch>.deb    (amd64, arm64)
+#   tmux_<ver>-<build>~gaofn_<arch>.deb    (amd64, arm64)
 #
 # Usage: ./build_debian.sh <tmux_version> <build_version> [amd64|arm64|all]
 set -euo pipefail
@@ -21,7 +21,7 @@ if [ -z "$VERSION" ] || [ -z "$BUILD" ]; then
     exit 1
 fi
 
-FULL_VERSION="${VERSION}-${BUILD}~griffo"
+FULL_VERSION="${VERSION}-${BUILD}~gaofn"
 
 case "$ARCH" in
     all)   ARCHES=("amd64" "arm64") ;;

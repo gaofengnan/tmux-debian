@@ -1,13 +1,15 @@
-![GitHub Release](https://img.shields.io/github/v/release/dariogriffo/tmux-debian)
-![GitHub Release Date](https://img.shields.io/github/release-date/dariogriffo/tmux-debian)
+![GitHub Release](https://img.shields.io/github/v/release/gaofengnan/tmux-debian)
+![GitHub Release Date](https://img.shields.io/github/release-date/gaofengnan/tmux-debian)
 
 <img src="tmux-logo.png" alt="tmux" width="152" align="right">
 
 # tmux for Debian and Ubuntu
 
+> Fork of [dariogriffo/tmux-debian](https://github.com/dariogriffo/tmux-debian) (MIT); the original packaging is by Dario Griffo. Served at [deb.gaofn.xyz](https://deb.gaofn.xyz) for Debian 12 (bookworm) and 13 (trixie).
+
 This repository contains build scripts that produce **unofficial** Debian and
 Ubuntu packages (`.deb`) of the latest [tmux](https://github.com/tmux/tmux)
-release, hosted at [deb.griffo.io](https://deb.griffo.io).
+release, hosted at [deb.gaofn.xyz](https://deb.gaofn.xyz).
 
 tmux publishes source code only, so every tagged release is compiled here
 from upstream's release tarball (`tmux-<version>.tar.gz`). The package is
@@ -65,8 +67,9 @@ version `apt policy tmux` lists for your distribution.
 
 ```sh
 sudo install -d -m 0755 /etc/apt/keyrings
-curl -fsSL https://deb.griffo.io/EA0F721D231FDD3A0A17B9AC7808B4DD62C41256.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/deb.griffo.io.gpg
-echo "deb [signed-by=/etc/apt/keyrings/deb.griffo.io.gpg] https://deb.griffo.io/apt $(lsb_release -sc 2>/dev/null) main" | sudo tee /etc/apt/sources.list.d/deb.griffo.io.list
+sudo curl -fsSL https://deb.gaofn.xyz/deb.gaofn.xyz.gpg -o /etc/apt/keyrings/deb.gaofn.xyz.gpg
+sudo curl -fsSL https://deb.gaofn.xyz/deb.gaofn.xyz.sources -o /etc/apt/sources.list.d/deb.gaofn.xyz.sources
+# Debian 12 (bookworm): fetch deb.gaofn.xyz-bookworm.sources instead
 sudo apt update
 sudo apt install tmux
 ```
@@ -74,7 +77,7 @@ sudo apt install tmux
 ### Manual installation
 
 1. Download the `.deb` for your architecture from the
-   [Releases](https://github.com/dariogriffo/tmux-debian/releases) page.
+   [Releases](https://github.com/gaofengnan/tmux-debian/releases) page.
 2. Install it:
 
 ```sh

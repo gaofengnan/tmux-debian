@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build the *source* package (.dsc + .orig.tar.gz + .debian.tar.xz), one for
-# every suite, for upload to deb.griffo.io. build_debian.sh builds the
+# every suite, for upload to deb.gaofn.xyz. build_debian.sh builds the
 # binaries from this same source package.
 #
 # The orig tarball is upstream's tmux-<ver>.tar.gz with ncurses' signed
@@ -35,7 +35,7 @@ BUILD_DIR="${PACKAGE_NAME}-${VERSION}"
 # version and reprepro refuses a different one. Reuse the earlier release's copy.
 if [ ! -f "$ORIG_TARBALL" ]; then
     for ((b = BUILD - 1; b >= 1; b--)); do
-        if wget -q "https://github.com/dariogriffo/tmux-debian/releases/download/${VERSION}%2B${b}/${ORIG_TARBALL}" -O "$ORIG_TARBALL"; then
+        if wget -q "https://github.com/gaofengnan/tmux-debian/releases/download/${VERSION}%2B${b}/${ORIG_TARBALL}" -O "$ORIG_TARBALL"; then
             echo "  Reusing $ORIG_TARBALL from release ${VERSION}+${b}"
             break
         fi
@@ -71,7 +71,7 @@ else
     echo "  Using existing $ORIG_TARBALL"
 fi
 
-FULL_VERSION="${VERSION}-${BUILD}~griffo"
+FULL_VERSION="${VERSION}-${BUILD}~gaofn"
 echo "  Building source package ${FULL_VERSION}..."
 rm -rf "$BUILD_DIR"
 tar -xzf "$ORIG_TARBALL"
@@ -81,7 +81,7 @@ tmux (${FULL_VERSION}) stable; urgency=medium
 
   * New upstream release ${VERSION}.
 
- -- Dario Griffo <dariogriffo@gmail.com>  $(date -R)
+ -- Fengnan Gao <gao.fengnan@gmail.com>  $(date -R)
 EOC
 dpkg-source -b "$BUILD_DIR"
 rm -rf "$BUILD_DIR"

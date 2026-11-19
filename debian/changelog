@@ -1,5 +1,5 @@
-tmux (0.0.0-1~griffo) stable; urgency=medium
+tmux (0.0.0-1~gaofn) stable; urgency=medium
 
   * Placeholder, rewritten by build_debian.sh / build_src.sh.
 
- -- Dario Griffo <dariogriffo@gmail.com>  Mon, 16 Nov 2026 00:00:00 +0000
+ -- Fengnan Gao <gao.fengnan@gmail.com>  Mon, 16 Nov 2026 00:00:00 +0000
